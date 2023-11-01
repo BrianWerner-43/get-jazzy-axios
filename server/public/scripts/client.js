@@ -55,3 +55,16 @@ function onReady() {
 }
 
 onReady();
+// A function that will handle the submit inputs
+function artistSong(event) {
+    event.preventDefault();
+    let artistInput = document.getElementById('artist-name').value;
+    let songInput = document.getElementById('song-name').value;
+    document.getElementById('artist-name').value = '';
+    document.getElementById('song-name').value = '';
+
+    // This will append to the DOM
+    songBody.innerHTML += `
+    <li>
+     `
+}
