@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 function onReady() {
     console.log('Hello from client.js');
 
@@ -36,6 +38,8 @@ function onReady() {
             // Code that will run on successful response
             // from the server.
             console.log(response);
+            // renderArtist(songListArray);// might work?
+
             // quotesFromServer will be an Array of quotes
             let quotesFromServer = response.data;
             let contentDiv = document.querySelector('#songTableBody');
@@ -55,16 +59,56 @@ function onReady() {
 }
 
 onReady();
-// A function that will handle the submit inputs
-function artistSong(event) {
-    event.preventDefault();
-    let artistInput = document.getElementById('artist-name').value;
-    let songInput = document.getElementById('song-name').value;
-    document.getElementById('artist-name').value = '';
-    document.getElementById('song-name').value = '';
 
-    // This will append to the DOM
-    songBody.innerHTML += `
-    <li>
-     `
-}
+// function artistSong(event) { // original copy
+//     event.preventDefault();
+//     let artistInput = document.getElementById('artist-name').value;
+//     let songInput = document.getElementById('song-name').value;
+//     document.getElementById('artist-name').value = '';
+//     document.getElementById('song-name').value = '';
+
+//     // This will append to the DOM
+//     songBody.innerHTML += `
+//     <li>
+//      `
+// }
+
+
+//A function that will handle the submit inputs
+// function renderArtist(songListArray) {
+//    let songList = document.getElementById('songBody');
+//    songList.innerHTML = '';
+
+//    for (let song of songListArray) {
+//     songList.innerHTML += `
+//     <li> ${song.title}: ${song.artist}</li>`
+//    }
+     
+// }
+// renderArtist();
+ 
+// function artistSong(event) {
+//     event.preventDefault();
+//     let title = document.getElementById('artist-name').value;
+//     let artist = document.getElementById('song-name').value;
+
+//     document.getElementById('artist-name').value = '';
+//     document.getElementById('song-name').value = '';
+
+//     let newArtistSongs = {
+//         title: title,
+//         artist: artist
+//     }
+
+//     axios({
+//         method: 'POST',
+//         url: '/songlistArray',
+//         data: newArtistSongs
+//     }).then((response) =>{
+//         onReady();
+//     })
+
+
+
+// }
+// artistSong();
